@@ -1,0 +1,132 @@
+
+1. Test case to check valid request
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: 144522102221' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "Lade",
+  "phoneNumber": 9730263087,
+  "emailId": "dikshant1171@gmail.com"
+}'
+
+2. Test case for duplicate emailId
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: 144522102222' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Guru",
+  "lastName": "k",
+  "phoneNumber": 1455214455,
+  "emailId": "dikshant1171@gmail.com"
+}'
+
+3. Test case for duplicate phoneNumber
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: 144522102223' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Guru",
+  "lastName": "k",
+  "phoneNumber": 9730263087,
+  "emailId": "gururaj@gmail.com"
+}'
+
+
+4. Test case for missing roll-number
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "phoneNumber": 843628476238,
+  "emailId": "dikshant@gmail.com"
+}'
+
+5. Test case for duplicate roll-number
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102221\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "phoneNumber": 843628476238,
+  "emailId": "dikshant@gmail.com"
+}'
+
+6. Test case for invalid phoneNumber format
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "phoneNumber": "qwerty",
+  "emailId": "dikshant@gmail.com"
+}'
+
+7. Test case for invalid emailId format
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "phoneNumber": 84726394387,
+  "emailId": "dikshant.com"
+}'
+
+8. Test case for extra field
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "phoneNumber": 87687876876,
+  "emailId": "dikshant@gmail.com",
+  "field": "extra field test case"
+}'
+
+9. Test case for missing required field firstName
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "lastName": "L",
+  "phoneNumber": 7587686988,
+  "emailId": "dikshant@gmail.com"
+}'
+
+
+10. Test case for missing required field lastName
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "phoneNumber": 7587686988,
+  "emailId": "dikshant@gmail.com"
+}'
+
+11. Test case for missing required field phoneNumber
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "emailId": "dikshant@gmail.com"
+}'
+
+12. Test case for missing required field emailId
+curl --location 'https://bfhldevapigw.healthrx.co.in/automation-campus/create/user' \
+--header 'roll-number: ' 144522102224\
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "firstName": "Dikshant",
+  "lastName": "L",
+  "phoneNumber": 7587686988
+}'
+
